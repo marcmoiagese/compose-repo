@@ -1,0 +1,20 @@
+version: '3.9'
+
+services:
+  omsa:
+    image: marcmg/openmanage:latest
+    container_name: OpenManage
+    privileged: true
+    ports:
+      - "1311:1311"
+    #restart: always
+    environment:
+      OMSA_USER: "admin"
+      OMSA_PASS: "T3rr3N3170R"
+    volumes:
+      - omsa_modules:/lib/modules
+    cgroup: private
+
+volumes:
+  omsa_modules:
+    driver: local
